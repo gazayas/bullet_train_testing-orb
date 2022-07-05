@@ -4,6 +4,7 @@ orbs:
   # This may be different depending on the developer's Bullet Train app's needs.
   ruby: circleci/ruby@0.1.2
   orb-tools: circleci/orb-tools@11.1
+  browser-tools: circleci/browser-tools@1.1
 
 filters: &filters
   tags:
