@@ -20,7 +20,7 @@ jobs:
       - ruby/bundle-install
   command-tests:
     docker:
-      - image: cimg/base:current
+      - image: 'cimg/ruby:3.1-node' # TODO: Should we keep this? cimg/base:current
     steps:
       - checkout
       # Run your orb's commands to validate them.
