@@ -1,0 +1,26 @@
+description: >
+  Run the local minitest suite for the current package.
+parameters:
+  paralellism:
+    type: integer
+    default: 16
+    description: "The amount of nodes we want to run in parallel when running tests."
+  knapsackPro:
+    type: boolean
+    default: true
+    description: "Determines whether we run the tests in parallel or linearly."
+
+# TODO: Not sure if these will work here
+executor: ruby/default
+parallelism: <<parameters.paralellism>>
+
+steps:
+  - browser-tools/install-chrome
+  - browser-tools/install-chromedriver
+  - checkout  
+  - run:
+      environment:
+        knapsackPro: <<parameters.knapsackPro>>
+        KNAPSACK_PRO_CI_NODE_TOTAL: <<parameters.paralellism>>
+      name: Run local Minitest suite
+      command: <<include(scripts/local_minitest.sh)>>
