@@ -16,7 +16,12 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - bullet_train_testing/greet
+      - bullet_train_testing/add:
+          numA: 2
+          numB: 5
+      - run:
+          name: Should Equal 7
+          command: grep -xq 7 /tmp/ADD_RESULT.txt
 workflows:
   test-deploy:
     jobs:
