@@ -1,4 +1,4 @@
-# TODO: Developers will need to have a Ruby Docker image (like we have in test-deploy.yml)
+# TODO: Developers will need to have a Ruby Docker image (like what we have in test-deploy.yml)
 # in their .circleci/config.yml to make sure this works. Should we tell them to do so if
 # we get a `/bin/bash: bundle: command not found` error? Should they just know?
 
