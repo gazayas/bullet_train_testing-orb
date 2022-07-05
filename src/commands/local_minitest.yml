@@ -1,7 +1,7 @@
 description: >
   Run the local minitest suite for the current package.
 parameters:
-  paralellism:
+  parallelism:
     type: integer
     default: 16
     description: "The amount of nodes we want to run in parallel when running tests."
