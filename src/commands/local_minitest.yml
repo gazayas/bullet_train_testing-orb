@@ -13,16 +13,14 @@ parameters:
 # TODO: Should this go in the executors directory?
 # executor: ruby/default
 
-# TODO: Not sure if these will work here
-parallelism: <<parameters.paralellism>>
-
 steps:
   - browser-tools/install-chrome
   - browser-tools/install-chromedriver
-  - checkout  
+  - checkout
   - run:
       environment:
         knapsackPro: <<parameters.knapsackPro>>
+        parallelism: <<parameters.paralellism>> # TODO: Not sure if this will work here
         KNAPSACK_PRO_CI_NODE_TOTAL: <<parameters.paralellism>>
       name: Run local Minitest suite
       command: <<include(scripts/local_minitest.sh)>>
