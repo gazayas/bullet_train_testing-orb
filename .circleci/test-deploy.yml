@@ -25,7 +25,8 @@ jobs:
     steps:
       - checkout
       - bullet_train_testing/standard_ruby
-      # TODO: This will fail, but I want to see what it does.
+      
+      # TODO: Add a dummy rails file to test this?
       - bullet_train_testing/local_minitest:
           knapsackPro: true
           parallelism: 16
