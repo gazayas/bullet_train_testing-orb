@@ -10,20 +10,14 @@ filters: &filters
     only: /.*/
 
 jobs:
-  build:
+  command-tests:
     docker:
-      - image: 'cimg/ruby:2.7-node'
+      - image: 'cimg/ruby:3.1-node'
     steps:
       - checkout
       - ruby/install:
           version: '3.1.1'
       - ruby/bundle-install
-  command-tests:
-    docker:
-      - image: 'cimg/ruby:3.1-node' # TODO: Should we keep this? cimg/base:current
-    steps:
-      - checkout
-      # Run your orb's commands to validate them.
       - bullet_train_testing/standard_ruby
 workflows:
   test-deploy:
