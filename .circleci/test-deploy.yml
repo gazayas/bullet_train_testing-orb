@@ -27,9 +27,9 @@ jobs:
       - bullet_train_testing/standard_ruby
       
       # TODO: Add a dummy rails file to test this?
-      - bullet_train_testing/local_minitest:
-          knapsackPro: true
-          parallelism: 16
+      # - bullet_train_testing/local_minitest:
+      #     knapsackPro: true
+      #     parallelism: 16
 workflows:
   test-deploy:
     jobs:
