@@ -10,8 +10,10 @@ parameters:
     default: true
     description: "Determines whether we run the tests in parallel or linearly."
 
+# TODO: Should this go in the executors directory?
+# executor: ruby/default
+
 # TODO: Not sure if these will work here
-executor: ruby/default
 parallelism: <<parameters.paralellism>>
 
 steps:
