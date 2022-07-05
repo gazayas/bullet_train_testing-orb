@@ -17,12 +17,12 @@ jobs:
       - checkout
       - ruby/install:
           version: '3.1.1'
-      - ruby/bundle-install
   command-tests:
     docker:
       - image: cimg/base:current
     steps:
       - checkout
+      - ruby/bundle-install
       - bullet_train_testing/standard_ruby
 workflows:
   test-deploy:
