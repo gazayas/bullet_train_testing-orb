@@ -18,7 +18,7 @@ steps:
   - run:
       environment:
         knapsackPro: <<parameters.knapsackPro>>
-        parallelism: <<parameters.paralellism>> # TODO: Not sure if this will work here
+        parallelism: <<parameters.parallelism>> # TODO: Not sure if this will work here
         KNAPSACK_PRO_CI_NODE_TOTAL: <<parameters.parallelism>>
       name: Run local Minitest suite
       command: <<include(scripts/local_minitest.sh)>>
