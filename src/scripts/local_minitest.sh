@@ -1,6 +1,5 @@
-echo $KNAPSACK_PRO
-
-if [[ $(("${KNAPSACK_PRO}")) == true ]]; then
+# 1 Represents `true` in this case
+if [[ $(("${KNAPSACK_PRO}")) == 1 ]]; then
   echo "Running tests with Knapsack Pro."
   export RAILS_ENV=test
   bundle exec rails "knapsack_pro:queue:minitest[--verbose]"
