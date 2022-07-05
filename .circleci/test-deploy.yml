@@ -12,6 +12,13 @@ filters: &filters
 jobs:
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
+  build:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - ruby/install:
+          version: '3.1.1'
   command-tests:
     docker:
       - image: cimg/base:current
