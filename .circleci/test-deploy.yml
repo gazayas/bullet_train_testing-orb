@@ -13,7 +13,7 @@ filters: &filters
 jobs:
   build:
     docker:
-      - image: 'cimg/ruby:3.1-node'
+      - image: 'cimg/ruby:3.1-browsers'
     steps:
       - checkout
       - ruby/install:
@@ -21,7 +21,7 @@ jobs:
       - ruby/bundle-install
   command-tests:
     docker:
-      - image: 'cimg/ruby:3.1-node'
+      - image: 'cimg/ruby:3.1-browsers'
     steps:
       - checkout
       - bullet_train_testing/standard_ruby

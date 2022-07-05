@@ -14,8 +14,6 @@ parameters:
 # executor: ruby/default
 
 steps:
-  docker:
-    - image: cimg/ruby:3.1.2-browsers
   - browser-tools/install-chrome
   - browser-tools/install-chromedriver
   - checkout
