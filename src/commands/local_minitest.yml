@@ -2,13 +2,13 @@ description: >
   Run the local minitest suite for the current package.
 parameters:
   parallelism:
+    description: "The amount of nodes we want to run in parallel when running tests."
     type: integer
     default: 16
-    description: "The amount of nodes we want to run in parallel when running tests."
   knapsackPro:
+    description: "Determines whether we run the tests in parallel or linearly."
     type: boolean
     default: true
-    description: "Determines whether we run the tests in parallel or linearly."
 
 # TODO: Should this go in the executors directory?
 # executor: ruby/default

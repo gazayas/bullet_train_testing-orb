@@ -1,3 +1,5 @@
+echo $KNAPSACK_PRO
+
 if [[ $(("${KNAPSACK_PRO}")) == true ]]; then
   echo "Running tests with Knapsack Pro."
   export RAILS_ENV=test
