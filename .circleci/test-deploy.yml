@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
   bullet_train_testing: gazayas/bullet_train_testing@dev:<<pipeline.git.revision>>
+  # This may be different depending on the developer's Bullet Train app's needs.
+  ruby: circleci/ruby@0.1.2
   orb-tools: circleci/orb-tools@11.1
 
 filters: &filters

@@ -1,7 +1,5 @@
 description: >
   Makes sure the current branch abides by all the Standard Ruby rules.
-orbs:
-  ruby: circleci/ruby@0.1.2
 steps:
   - run:
       name: bundle install
