@@ -21,7 +21,7 @@ jobs:
           numB: 5
       - run:
           name: Should Equal 7
-          command: grep -xp 7 /tmp/ADD_RESULT.txt
+          command: grep -xq 7 /tmp/ADD_RESULT.txt
 workflows:
   test-deploy:
     jobs:
