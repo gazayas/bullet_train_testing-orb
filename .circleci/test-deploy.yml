@@ -19,6 +19,9 @@ jobs:
       - bullet_train_testing/add:
           numA: 2
           numB: 5
+      - run:
+          name: Should Equal 7
+          command: grep -xp 7 /tmp/ADD_RESULT.txt
 workflows:
   test-deploy:
     jobs:
