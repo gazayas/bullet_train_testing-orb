@@ -26,8 +26,8 @@ jobs:
       - bullet_train_testing/standard_ruby
       # TODO: This will fail, but I want to see what it does.
       - bullet_train_testing/local_minitest:
-        knapsackPro: true
-        parallelism: 16
+          knapsackPro: true
+          parallelism: 16
 workflows:
   test-deploy:
     jobs:
