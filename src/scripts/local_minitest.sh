@@ -1,4 +1,4 @@
-if [[ $(("${knapsackPro}")) == true ]]; then
+if [[ $(("${KNAPSACK_PRO}")) == true ]]; then
   export RAILS_ENV=test
   bundle exec rails "knapsack_pro:queue:minitest[--verbose]"
 else
