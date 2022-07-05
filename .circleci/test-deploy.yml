@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   bullet_train_testing: gazayas/bullet_train_testing@dev:<<pipeline.git.revision>>
   # This may be different depending on the developer's Bullet Train app's needs.
-  ruby: circleci/ruby@0.1.2
+  ruby: circleci/ruby@0.1.8
   orb-tools: circleci/orb-tools@11.1
 
 filters: &filters
@@ -10,21 +10,19 @@ filters: &filters
     only: /.*/
 
 jobs:
-  # Create a job to test the commands of your orbs.
-  # You may want to add additional validation steps to ensure the commands are working as expected.
   build:
     docker:
-      - image: 'cimg/base:stable'
+      - image: 'cimg/ruby:2.7-node'
     steps:
       - checkout
       - ruby/install:
           version: '3.1.1'
+      - ruby/bundle-install
   command-tests:
     docker:
       - image: cimg/base:current
     steps:
       - checkout
-      - ruby/bundle-install
       # Run your orb's commands to validate them.
       - bullet_train_testing/standard_ruby
 workflows:
