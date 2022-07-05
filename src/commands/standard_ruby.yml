@@ -2,5 +2,5 @@ description: >
   Makes sure the current branch abides by all the Standard Ruby rules.
 steps:
   - run:
-    name: Check Standard Ruby
-    command: bundle exec standardrb
+      name: Check Standard Ruby
+      command: bundle exec standardrb
