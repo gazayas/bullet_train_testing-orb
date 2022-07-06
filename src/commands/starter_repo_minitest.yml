@@ -21,7 +21,7 @@ steps:
       name: Set up the Starter Repository for testing
       command: <<include(scripts/starter_repo_setup.sh)>>
 
-  # TODO: This is figured out in a bullet_train-base PR,
+  # TODO: This is figured out in one of the bullet_train-base PRs,
   # I just want to make sure these orb commands work before getting here:
   # - restore_cache: *restore_bundler_cache
   # - restore_cache: *restore_yarn_cache
