@@ -24,5 +24,6 @@ steps:
         KNAPSACK_PRO: <<parameters.knapsackPro>>
         parallelism: <<parameters.parallelism>> # TODO: Not sure if this will work here
         KNAPSACK_PRO_CI_NODE_TOTAL: <<parameters.parallelism>>
+        STARTER_REPO: false
       name: Run local Minitest suite
-      command: <<include(scripts/local_minitest.sh)>>
+      command: <<include(scripts/minitest_executor.sh)>>
