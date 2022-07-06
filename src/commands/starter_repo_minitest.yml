@@ -16,19 +16,10 @@ parameters:
 steps:
   - checkout
   - run:
-      name: Clone the Starter Repository
-      command: "git clone https://github.com/bullet-train-co/bullet_train.git tmp/starter"
-  - run:
-      name: Rename the directory of the Ruby gem being tested for the partial resolver test.
-      command: |
-        mv /home/circleci/project /home/circleci/<<parameters.packageName>> && \
-        ln -s /home/circleci/<<parameters.packageName>> /home/circleci/project
-  - run:
-      name: Link starter repository to the Ruby gem being tested.
-      command: |
-        grep -v 'gem \"bullet_train\"' tmp/starter/Gemfile > tmp/starter/Gemfile.tmp && \
-        mv tmp/starter/Gemfile.tmp tmp/starter/Gemfile && \
-        echo 'gem \"bullet_train\", path: \"../..\"' >> tmp/starter/Gemfile
+      environment:
+        PACKAGE_NAME: <<parameters.packageName>>
+      name: Set up the Starter Repository for testing
+      command: <<include(scripts/starter_repo_setup.sh)>>
 
   # TODO: This is figured out in a bullet_train-base PR,
   # I just want to make sure these orb commands work before getting here:
