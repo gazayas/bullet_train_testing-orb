@@ -1,3 +1,7 @@
+# This command isn't as important as the Starter Repo Minitest and
+# Starter Repo Super Scaffolding Test commands, so although I will leave this for now,
+# it's low priority compared to those.
+
 description: >
   Run the local minitest suite for the current package.
 parameters:

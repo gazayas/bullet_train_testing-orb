@@ -26,7 +26,8 @@ jobs:
       - checkout
       - bullet_train_testing/standard_ruby
       
-      # TODO: Add a dummy rails file to test this?
+      # TODO: Find a way to actually test this, since we should be running
+      # this in the context of a Bullet Train application of Ruby Gem.
       # - bullet_train_testing/local_minitest:
       #     knapsackPro: true
       #     parallelism: 16
