@@ -1,3 +1,8 @@
+# Run tests in tmp/starter if we're checking the Starter Repo
+if [[ $(("${STARTER_REPO})) == 1 ]]; then
+  cd tmp/starter
+fi
+
 # 1 Represents `true` in this case
 if [[ $(("${KNAPSACK_PRO}")) == 1 ]]; then
   echo "Running tests with Knapsack Pro."

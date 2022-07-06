@@ -31,6 +31,12 @@ jobs:
       # - bullet_train_testing/local_minitest:
       #     knapsackPro: true
       #     parallelism: 16
+
+      - bullet_train_testing/starter_repo_minitest:
+          packageName: bullet_train-base
+          knapsackPro: true
+          parallelism: 16
+
 workflows:
   test-deploy:
     jobs:
