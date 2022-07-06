@@ -1,0 +1,28 @@
+# This command isn't as important as the Starter Repo Minitest and
+# Starter Repo Super Scaffolding Test commands, so although I will leave this for now,
+# it's low priority compared to those.
+
+description: >
+  Run the local minitest suite for the current package.
+parameters:
+  parallelism:
+    description: "The amount of nodes we want to run in parallel when running tests."
+    type: integer
+    default: 16
+  knapsackPro:
+    description: "Determines whether we run the tests in parallel or linearly."
+    type: boolean
+    default: true
+
+# TODO: Should this go in the executors directory?
+# executor: ruby/default
+
+steps:
+  - checkout
+  - run:
+      environment:
+        KNAPSACK_PRO: <<parameters.knapsackPro>>
+        parallelism: <<parameters.parallelism>> # TODO: Not sure if this will work here
+        KNAPSACK_PRO_CI_NODE_TOTAL: <<parameters.parallelism>>
+      name: Run local Minitest suite
+      command: <<include(scripts/local_minitest.sh)>>

@@ -4,6 +4,7 @@ orbs:
   # This may be different depending on the developer's Bullet Train app's needs.
   ruby: circleci/ruby@0.1.2
   orb-tools: circleci/orb-tools@11.1
+  browser-tools: circleci/browser-tools@1.1
 
 filters: &filters
   tags:
@@ -12,7 +13,7 @@ filters: &filters
 jobs:
   build:
     docker:
-      - image: 'cimg/ruby:3.1-node'
+      - image: 'cimg/ruby:3.1-browsers'
     steps:
       - checkout
       - ruby/install:
@@ -20,10 +21,16 @@ jobs:
       - ruby/bundle-install
   command-tests:
     docker:
-      - image: 'cimg/ruby:3.1-node'
+      - image: 'cimg/ruby:3.1-browsers'
     steps:
       - checkout
       - bullet_train_testing/standard_ruby
+      
+      # TODO: Find a way to actually test this, since we should be running
+      # this in the context of a Bullet Train application of Ruby Gem.
+      # - bullet_train_testing/local_minitest:
+      #     knapsackPro: true
+      #     parallelism: 16
 workflows:
   test-deploy:
     jobs:
