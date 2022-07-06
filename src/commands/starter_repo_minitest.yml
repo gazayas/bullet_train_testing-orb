@@ -15,7 +15,7 @@ parameters:
 
 steps:
   - checkout
-  - run: "git clone https://github.com/bullet-train-co/bullet_train.git tmp/starter"
+  run: "git clone https://github.com/bullet-train-co/bullet_train.git tmp/starter"
   - run:
       name: Rename the directory of the Ruby gem being tested for the partial resolver test.
       command: mv /home/circleci/project /home/circleci/<<parameters.packageName>> && ln -s /home/circleci/<<parameters.packageName>> /home/circleci/project
