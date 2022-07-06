@@ -1,5 +1,5 @@
 # Run tests in tmp/starter if we're checking the Starter Repo
-if [[ $(("${STARTER_REPO})) == 1 ]]; then
+if [[ $(("${STARTER_REPO}")) == 1 ]]; then
   cd tmp/starter
 fi
 
