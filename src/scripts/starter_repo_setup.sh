@@ -7,6 +7,7 @@ NAME=$(("${PACKAGE_NAME}"))
 # Clone the repository
 git clone https://github.com/bullet-train-co/bullet_train.git tmp/starter
 
+# TODO: There's something in this file that's causing bullet_train-themes-light to fail
 # Rename the directory of the Ruby gem being tested for the partial resolver
 # mv /home/circleci/project /home/circleci/$PACKAGE_NAME && \
 # ln -s /home/circleci/$PACKAGE_NAME /home/circleci/project
