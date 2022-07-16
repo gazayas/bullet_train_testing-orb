@@ -39,6 +39,13 @@ jobs:
       #     knapsackPro: true
       #     parallelism: 16
 
+      # TODO: Find a way to actually test this, since we should be running
+      # this in the context of a Bullet Train package.
+      # - bullet_train_testing/starter_repo_super_scaffolding:
+      #     packageName: bullet_train-base
+      #     knapsackPro: true
+      #     parallelism: 16
+
 workflows:
   test-deploy:
     jobs:

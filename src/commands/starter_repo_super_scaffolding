@@ -1,0 +1,71 @@
+description: >
+  Run the Super Scaffolding Minitest suite for the Starter Repo
+parameters:
+  packageName:
+    description: "The name of the package we're running the tests in."
+    type: string
+  # TODO: Do we need this environment variables?
+  parallelism:
+    description: "The amount of nodes we want to run in parallel when running tests."
+    type: integer
+    default: 16
+  knapsackPro:
+    description: "Determines whether we run the tests in parallel or linearly."
+    type: boolean
+    default: true
+
+steps:
+  - checkout
+  - run:
+      environment:
+        PACKAGE_NAME: <<parameters.packageName>>
+      name: Set up the Starter Repository for testing
+      command: <<include(scripts/starter_repo_setup.sh)>>
+  - run:
+      environment:
+        PACKAGE_NAME: <<parameters.packageName>>
+      name: Link starter repository to the gem being use
+      command: <<include(scripts/link_gem.sh)>>
+
+  # TODO: This is figured out in a bullet_train-base PR,
+  # I just want to make sure these orb commands work before getting here:
+  # - restore_cache: *restore_bundler_cache
+  # - restore_cache: *restore_yarn_cache
+
+  # Install dependencies
+  # All run commands need to be named for the CircleCI orb tests to pass.
+  - run:
+      name: Bundle install in tmp/starter
+      command: "cd tmp/starter && bundle install"
+  - run:
+      name: Bundle clean in tmp/starter
+      command: "cd tmp/starter && bundle clean --force"
+  - run:
+      name: rake bt:link in tmp/starter
+      command: "cd tmp/starter && bundle exec rake bt:link"
+  - run:
+      name: yarn install in tmp/starter
+      command: "cd tmp/starter && yarn install"
+  - run:
+      name: yarn build in tmp/starter
+      command: "cd tmp/starter && yarn build"
+  - run:
+      name: yarn build:css in tmp/starter
+      command: "cd tmp/starter && yarn build:css"
+
+  # We run this because the DB might not be available for a while due to a race condition.
+  - run:
+      name: Wait for Docker
+      command: "dockerize -wait tcp://localhost:5432 -timeout 1m"
+  
+  - run:
+      name: Add Spring to tmp/starter
+      command: "cd tmp/starter && bundle add spring"
+
+  # Run the tests
+  - run:
+      name: 'Setup Super Scaffolding System Test'
+      command: "cd tmp/starter && bundle exec test/bin/setup-super-scaffolding-system-test"
+  - run:
+      name: 'Run Super Scaffolding Test'
+      command: "cd tmp/starter && bundle exec rails test test/system/super_scaffolding_test.rb"
