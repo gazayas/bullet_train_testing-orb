@@ -6,4 +6,5 @@
 cd tmp/starter && bundle exec test/bin/setup-super-scaffolding-system-test
 
 # Run Super Scaffolding Test
-cd tmp/starter && bundle exec rails test test/system/super_scaffolding_test.rb
+# At this point we should already be in `tmp/starter`
+bundle exec rails test test/system/super_scaffolding_test.rb
