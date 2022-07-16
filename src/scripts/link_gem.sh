@@ -1,5 +1,10 @@
 NAME=$PACKAGE_NAME
 
+# Use `bullet_Train` if the package is `bullet_train-base`
+if [[ $NAME =~ base$ ]]; then
+  NAME="bullet_train"
+fi
+
 GEM_STRING=("gem \"${NAME}\"")
 GEM_STRING_WITH_PATH=("${GEM_STRING[@]}, path: \"../..\"")
 
