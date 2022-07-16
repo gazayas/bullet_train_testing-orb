@@ -20,6 +20,11 @@ steps:
         PACKAGE_NAME: <<parameters.packageName>>
       name: Set up the Starter Repository for testing
       command: <<include(scripts/starter_repo_setup.sh)>>
+  - run:
+      environment:
+        PACKAGE_NAME: <<parameters.packageName>>
+      name: Link starter repository to the gem being use
+      command: <<include(scripts/link_gem.sh)>>
 
   # TODO: This is figured out in a bullet_train-base PR,
   # I just want to make sure these orb commands work before getting here:
