@@ -8,10 +8,9 @@ NAME=$PACKAGE_NAME
 git clone https://github.com/bullet-train-co/bullet_train.git tmp/starter
 
 # TODO: There's something in this file that's causing bullet_train-themes-light to fail
-# Might have to skip some other steps here
 # Rename the directory of the Ruby gem being tested for the partial resolver
-# mv /home/circleci/project /home/circleci/$PACKAGE_NAME && \
-# ln -s /home/circleci/$PACKAGE_NAME /home/circleci/project
+mv /home/circleci/project /home/circleci/$PACKAGE_NAME && \
+ln -s /home/circleci/$PACKAGE_NAME /home/circleci/project
 
 # Use `bullet_Train` if the package is `bullet_train-base`
 if [[ $NAME =~ base$ ]]; then
