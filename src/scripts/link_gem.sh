@@ -1,12 +1,9 @@
 NAME=$PACKAGE_NAME
 
-# TODO: If this works, we can just delete
-# the same code over in starter_repo_setup.sh
 # Use `bullet_Train` if the package is `bullet_train-base`
 if [[ $NAME =~ base$ ]]; then
   NAME="bullet_train"
 fi
-
 
 GEM_STRING=("gem \"${NAME}\"")
 GEM_STRING_WITH_PATH=("${GEM_STRING[@]}, path: \"../..\"")
